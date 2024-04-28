@@ -10,14 +10,15 @@ export default defineNuxtConfig({
   imports:{
     dirs: ['stores'],
   },
-  
+
   modules: [
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
         config.plugins?.push(vuetify({autoImport: true}))
       })
     },
-    '@pinia/nuxt'
+    '@pinia/nuxt',
+    '@ueuse/nuxt'
   ],
   vite:{
     vue: {

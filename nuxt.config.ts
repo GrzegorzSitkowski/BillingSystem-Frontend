@@ -18,7 +18,8 @@ export default defineNuxtConfig({
       })
     },
     '@pinia/nuxt',
-    '@ueuse/nuxt'
+    '@vueuse/nuxt',
+    'nuxt-lodash'
   ],
   vite:{
     vue: {
@@ -26,5 +27,11 @@ export default defineNuxtConfig({
         transformAssetUrls,
       },
     },
-  }
+  },
+
+  lodash:{
+    prefix: "_",
+    prefixSkip: false,
+    upperAfterPrefix: false,
+  },
 })

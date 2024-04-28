@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@vueuse/nuxt',
     'nuxt-lodash',
-    'days-nuxt'
+    'dayjs-nuxt'
   ],
   vite:{
     vue: {

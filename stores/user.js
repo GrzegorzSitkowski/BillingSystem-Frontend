@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import { useWebApiFetch } from '~/utils/webApi';
 
 export const useUserStore = defineStore({
     id: 'user-store',

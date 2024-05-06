@@ -31,6 +31,7 @@ const theme = useTheme()
 const { mobile } = useDisplay();
 const drawer = ref(null)
 const currentTheme = useStorage('currentTheme', 'light')
+const userStore = useUserStore();
 
 const menuItems = [
     {
@@ -53,6 +54,7 @@ function toggleTheme () {
 
 onMounted(() => {
     theme.global.name.value = currentTheme.value;
+    userStore.loadLoggedInUser();
 });
 
 </script>

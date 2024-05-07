@@ -20,6 +20,7 @@
             </div>       
         </v-main>
     </v-app>
+    <LoginDialog ></LoginDialog>
 </template>
 
 <script setup>

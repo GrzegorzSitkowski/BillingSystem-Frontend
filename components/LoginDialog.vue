@@ -5,10 +5,10 @@
             <div v-if="userStore.$state.loading === true" class="pa-4 d-flex justify-center">
                 <VProgressCircular indeterminate></VProgressCircular>
             </div>
-            <VForm v-else @submit.prevent="login" :disabled="loading">
+            <VForm v-else @submit.prevent="submit" :disabled="loading">
                 <VCardText>
-                    <v-text-field class="mb-4" variant="outlined" v-model="viewModel.email" label="Email"></v-text-field>
-                    <v-text-field class="mb-4" variant="outlined" v-model="viewModel.password" type="password" label="Password"></v-text-field>
+                    <v-text-field class="mb-4" variant="outlined" v-model="viewModel.email" label="Email" :rules="[ruleEmail, ruleRequired]"></v-text-field>
+                    <v-text-field class="mb-4" variant="outlined" v-model="viewModel.password" type="password" label="Password" :rules="[ruleRequired]"></v-text-field>
                     <VAlert v-if="errorMsg" type="error" varaint="tonal">{{ errorMsg }}</VAlert>
                 </VCardText>
                 <VCardActions>
@@ -27,6 +27,8 @@
 
 const userStore = useUserStore();
 const { getErrorMessage } = useWebApiResponseParser();
+const { ruleRequired, ruleEmail } = useFormValidationRules();
+
 const show = computed(() => {
     return userStore.$state.isLoggedIn === false || userStore.$state.loading === true;
 });
@@ -38,6 +40,13 @@ const viewModel = ref({
     email: '',
     password: ''
 });
+
+const submit = async (ev) => {
+    const { valid } = await ev;
+    if (valid) {
+        login();
+    }
+}
 
 const login = () => {
     loading.value = true;

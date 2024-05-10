@@ -24,7 +24,9 @@
 </style>
 
 <script setup>
+
 const userStore = useUserStore();
+const { getErrorMessage } = useWebApiResponseParser();
 const show = computed(() => {
     return userStore.$state.isLoggedIn === false || userStore.$state.loading === true;
 });
@@ -45,7 +47,7 @@ const login = () => {
         method: 'POST',
         body: {...viewModel.value},
         onResponseError: ({ response }) => {
-            errorMsg.value = "Error login";
+            errorMsg.value = getErrorMessage(response, { "InvalidLoginOrPassword": "Invalid login or password"});
         }
     })
     .then((response) => {

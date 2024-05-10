@@ -18,7 +18,7 @@ export const useWebApiResponseParser = () => {
                         return messages.join('\n');
                     }
 
-                    return "Insert wrond data";
+                    return "Insert invalid data";
                 }
                 else{
                     if(response._data && response._data.error){
@@ -36,7 +36,7 @@ export const useWebApiResponseParser = () => {
 
 const defaultValidationMessages = {
     "NotEmptyValidator" : "Field can't be empty",
-    "EmailValidator" : "Wrong Email"
+    "EmailValidator" : "Invalid Email"
 }
 
 const defaultFieldNames = {

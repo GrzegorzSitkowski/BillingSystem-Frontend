@@ -61,6 +61,7 @@ const login = () => {
     })
     .then((response) => {
         if(response.data.value){
+            viewModel.value.password = '';
             userStore.loadLoggedInUser();
         }
     })

@@ -36,8 +36,8 @@
                 <NuxtPage v-if="userStore.$state.isLoggedIn === true"/>
             </div>       
         </v-main>
-    </v-app>
-    <LoginDialog ></LoginDialog>
+        <LoginDialog ></LoginDialog>
+    </v-app>   
 </template>
 
 <script setup>

@@ -37,6 +37,7 @@
             </div>       
         </v-main>
         <LoginDialog ></LoginDialog>
+        <ConfirmDialog ref="confirmDialog"/>
     </v-app>   
 </template>
 
@@ -51,6 +52,8 @@ const drawer = ref(null)
 const currentTheme = useStorage('currentTheme', 'light')
 const userStore = useUserStore();
 const accountStore = useAccountStore();
+const confirmDialog = ref(null)
+
 
 const menuItems = [
     {
@@ -72,7 +75,16 @@ function toggleTheme () {
 }
 
 const logout = () => {
-    userStore.logout();
+    confirmDialog.value.show({
+        title: 'Confirm logout',
+        text: 'Are you sure?',
+        confirmBtnText: 'Logout',
+        confirmBtnColor: 'error'
+    }).then((confirm) => {
+        if (confirm) {
+            userStore.logout();
+        }
+    })
 }
 
 onMounted(() => {

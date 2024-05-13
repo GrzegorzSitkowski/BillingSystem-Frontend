@@ -29,6 +29,8 @@ definePageMeta({
     layout: "no-auth"
 });
 
+var globalMessageStore = useGlobalMessageStore();
+
 const viewModel = ref({
     email: '',
     password: ''
@@ -65,6 +67,7 @@ const register = () => {
     })
     .then((response) => {
         if(response.data.value){
+            globalMessageStore.showSuccessMessage("Account created. You're logged.")
             router.push({ path: '/' });
         }
     })

@@ -1,6 +1,6 @@
 <template>
-  <div>
+  <div>  
     <NuxtLayout />
-    <GlobalMessage/>
+    <GlobalMessage />
   </div>
 </template>

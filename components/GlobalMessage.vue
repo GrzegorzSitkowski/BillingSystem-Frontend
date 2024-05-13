@@ -1,4 +1,5 @@
 <template>
+    <v-app>
     <v-snackbar v-model="visible" :color="color">
         {{ currentMessage?.text }}
 
@@ -8,6 +9,7 @@
             </v-btn>
         </template>
     </v-snackbar>
+    </v-app>
 </template>
 
 <script setup>

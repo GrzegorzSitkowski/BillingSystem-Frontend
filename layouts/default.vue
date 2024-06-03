@@ -61,11 +61,20 @@ const menuItems = [
         name: 'Home',
         icon: 'mdi-home',
         url: '/',
+        subItems: [],
     },
     {
-        name: 'List of urls',
-        icon: 'mdi-web-check',
-        url: '/urls'
+        name: 'Customers',
+        icon: 'mdi-account',
+        url: '/customers',        
+    },
+];
+
+const menuItemsGroup = [
+    {
+        name: 'Search',
+        icon: 'mdi-account-search',
+        url: '/customers/search',   
     }
 ];
 

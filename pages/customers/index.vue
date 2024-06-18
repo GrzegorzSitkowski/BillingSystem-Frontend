@@ -7,7 +7,7 @@
 
             <template v-slot:append>
                 <div class="ml-2">
-                    <v-btn color="primary" variant="flat" prepend-icon="mdi-plus">Add</v-btn>
+                    <v-btn color="primary" variant="flat" prepend-icon="mdi-plus" to="/customers/add">Add</v-btn>
                 </div>
             </template>
         </v-toolbar>
@@ -26,7 +26,7 @@
             <template v-slot:item.action="{ item }">
                 <div class="text-no-wrap">
                     <VBtn icon="mdi-delete" title="Delete" variant="flat"></VBtn>
-                    <VBtn icon="mdi-pencil" title="Edit" variant="flat"></VBtn>
+                    <VBtn icon="mdi-pencil" title="Edit" variant="flat" :to="`/customers/${item.id}`"></VBtn>
                 </div>
             </template>
         </v-data-table>

@@ -25,19 +25,23 @@
 
             <template v-slot:item.action="{ item }">
                 <div class="text-no-wrap">
-                    <VBtn icon="mdi-delete" title="Delete" variant="flat"></VBtn>
+                    <VBtn icon="mdi-delete" title="Delete" variant="flat" :loading="item.deleting" @click="deleteCustomer(item)"></VBtn>
                     <VBtn icon="mdi-pencil" title="Edit" variant="flat" :to="`/customers/${item.id}`"></VBtn>
                 </div>
             </template>
         </v-data-table>
+        <ConfirmDialog ref="confirmDialog" />
     </VCard>
 </template>
 
 <script setup>
-
+const globalMessageStore = useGlobalMessageStore();
+const { getErrorMessage } = useWebApiResponseParser();
 const dayjs = useDayjs();
 const loading = ref(false);
 const items = ref([]);
+
+const confirmDialog = ref(null);
 
 const headers = ref([
     {title: 'Id', value: 'id'},
@@ -68,6 +72,40 @@ const loadData = () => {
 onMounted(() => {
     loadData();
 });
+
+const deleteCustomer = (item) => {
+    confirmDialog.value.show({
+        title: 'Confirm delete',
+        text: 'Are you sure?',
+        confirmBtnText: 'Delete',
+        confirmBtnColor: 'error'
+    }).then((confirm) => {
+        if (confirm) {
+            item.deleting = true;
+            useWebApiFetch('/Customer/Delete', {
+                method: 'POST',
+                body: { id : item.id },
+                watch: false,
+                onResponseError: ({ response }) => {
+                    let message = getErrorMessage(response, {});
+                    globalMessageStore.showErrorMessage(message);
+                }
+            })
+            .then((response) => {
+                if (response.data.value) {
+                    globalMessageStore.showSuccessMessage('Customer was deleted.');
+                    let indexToDel = items.value.findIndex(i => i.id === item.id);
+                    if (indexToDel > -1) {
+                        items.value.splice(indexToDel, 1);
+                    }
+                }
+            })
+            .finally(() => {
+                item.deleting = false;
+            });
+        }
+    })
+}
 
 
 </script>

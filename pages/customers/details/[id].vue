@@ -34,7 +34,7 @@
             </v-container>
 
             <VCardText class="text-righ">
-                <VBtn variant="flat" color="primary" type="submit" :to="`/customers/${route.params.id}`">Edit</VBtn>
+                <VBtn variant="flat" color="primary" type="submit" :to="`/customers/edit/${route.params.id}`">Edit</VBtn>
             </VCardText>
         </VForm>
     </VCard>

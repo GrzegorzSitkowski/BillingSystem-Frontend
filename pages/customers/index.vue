@@ -26,7 +26,7 @@
             <template v-slot:item.action="{ item }">
                 <div class="text-no-wrap">
                     <VBtn icon="mdi-delete" title="Delete" variant="flat" :loading="item.deleting" @click="deleteCustomer(item)"></VBtn>
-                    <VBtn icon="mdi-pencil" title="Edit" variant="flat" :to="`/customers/${item.id}`"></VBtn>
+                    <VBtn icon="mdi-pencil" title="Edit" variant="flat" :to="`/customers/edit/${item.id}`"></VBtn>
                 </div>
             </template>
         </v-data-table>

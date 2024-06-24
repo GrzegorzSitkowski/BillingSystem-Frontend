@@ -67,7 +67,7 @@ const submit = async (ev) => {
 const save = () => {
     saving.value = true;
 
-    useWebApiFetch(`/Customer/CreateOrUpdate`, {
+    useWebApiFetch(`/Customers/CreateOrUpdate`, {
         method: 'POST',
         body: { ...viewModel.value, id: isAdd.value ? undefined : route.params.id },
         watch: false,
@@ -92,7 +92,7 @@ const save = () => {
 const loadData = () => {
     loading.value = true;
 
-    useWebApiFetch('/Customer/GetCustomer', {
+    useWebApiFetch('/Customers/GetCustomer', {
         query: {id: route.params.id },
     }).then(({ data, error}) => {
         if(data.value){

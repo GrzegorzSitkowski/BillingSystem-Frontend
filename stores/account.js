@@ -11,7 +11,7 @@ export const useAccountStore = defineStore({
     actions: {
         loadCurrentAccount() {
             this.loading = true;
-            useWebApiFetch('/Account/GetCurrentAccount')
+            useWebApiFetch('/Accounts/GetCurrentAccount')
                 .then(({ data, error }) => {
                     if(data.value){
                         this.accountData = data.value;

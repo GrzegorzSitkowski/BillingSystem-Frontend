@@ -57,7 +57,7 @@ const headers = ref([
 const loadData = () => {
     loading.value = true;
 
-    useWebApiFetch('/Customer/List')
+    useWebApiFetch('/Customers/List')
         .then(({ data, error }) => {
             if (data.value) {
                 items.value = data.value.customers;
@@ -83,7 +83,7 @@ const deleteCustomer = (item) => {
     }).then((confirm) => {
         if (confirm) {
             item.deleting = true;
-            useWebApiFetch('/Customer/Delete', {
+            useWebApiFetch('/Customers/Delete', {
                 method: 'POST',
                 body: { id : item.id },
                 watch: false,

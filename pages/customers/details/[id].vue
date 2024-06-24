@@ -67,7 +67,7 @@ const submit = async (ev) => {
 }
 
 const get = () => {
-    useWebApiFetch(`/Customer/GetCustomer`, {
+    useWebApiFetch(`/Customers/GetCustomer`, {
         method: 'GET',
         body: { ...viewModel.value, id: isAdd.value ? undefined : route.params.id },
         watch: false,
@@ -85,7 +85,7 @@ const isAdd = computed(() => {
 const loadData = () => {
     loading.value = true;
 
-    useWebApiFetch('/Customer/GetCustomer', {
+    useWebApiFetch('/Customers/GetCustomer', {
         query: {id: route.params.id },
     }).then(({ data, error}) => {
         if(data.value){

@@ -58,7 +58,7 @@ const register = () => {
     loading.value = true;
     errorMsg.value = "";
 
-    useWebApiFetch('/User/CreateUserWithAccount', {
+    useWebApiFetch('/Users/CreateUserWithAccount', {
         method: 'POST',
         body: { ...viewModel.value },
         onResponseError: ({ response }) => {

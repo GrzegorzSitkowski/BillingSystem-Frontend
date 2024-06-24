@@ -14,7 +14,7 @@ export const useUserStore = defineStore({
             const accountStore = useAccountStore();
 
             this.loading = true;
-            useWebApiFetch('/User/GetLoggedInUser')
+            useWebApiFetch('/Users/GetLoggedInUser')
             .then(({ data, error }) => {
                 if(data.value){
                     this.isLoggedIn = true;
@@ -31,7 +31,7 @@ export const useUserStore = defineStore({
         },
 
         logout(){
-            useWebApiFetch('/User/Logout', {
+            useWebApiFetch('/Users/Logout', {
                 method: 'POST',
             })
             .then((response) => {

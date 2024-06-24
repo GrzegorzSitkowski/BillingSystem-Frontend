@@ -53,7 +53,7 @@ const login = () => {
     loading.value = true;
     errorMsg.value = "";
 
-    useWebApiFetch('/User/Login', {
+    useWebApiFetch('/Users/Login', {
         method: 'POST',
         body: {...viewModel.value},
         onResponseError: ({ response }) => {

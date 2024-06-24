@@ -9,7 +9,7 @@ export const useAntiForgeryStore = defineStore({
     },
     actions: {
         async loadAntiForgeryToken() {
-            await useWebApiFetch('/User/AntiforgeryToken')
+            await useWebApiFetch('/Users/AntiforgeryToken')
                 .then(({ data, error }) => {
                     if (data.value) {
                         this.token = data.value;

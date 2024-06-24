@@ -24,7 +24,7 @@
             </VCardText>
 
             <VCardText class="text-righ">
-                <VBtn prepend-icon="mid-content-save" variant="flat" color="primary" type="submit" :loading="saving"
+                <VBtn  variant="flat" color="primary" type="submit" :loading="saving"
                     :disabled="loading">Save
                 </VBtn>
             </VCardText>
@@ -37,9 +37,14 @@
 const route = useRoute();
 const { getErrorMessage } = useWebApiResponseParser();
 const globalMessageStore = useGlobalMessageStore();
+const router = useRouter();
 
 const saving = ref(false);
 const loading = ref(false);
+
+const isAdd = computed(() => {
+    return route.params.id === 'add';
+});
 
 const viewModel = ref({
     fullName: '',
@@ -74,7 +79,7 @@ const save = () => {
         .then((response) => {
             if (response.data.value) {
                 globalMessageStore.showSuccessMessage('Saved changes.');
-                router.push({ path: '/customer' });
+                router.push({ path: '/customers' });
             }
         })
         .finally(() => {
@@ -82,9 +87,7 @@ const save = () => {
         });
 }
 
-const isAdd = computed(() => {
-    return route.params.id === 'add';
-});
+
 
 const loadData = () => {
     loading.value = true;

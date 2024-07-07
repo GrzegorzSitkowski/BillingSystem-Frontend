@@ -68,6 +68,11 @@ const menuItems = [
         icon: 'mdi-account',
         url: '/customers',        
     },
+    {
+        name: 'Readings',
+        icon: 'mdi-dns-outline',
+        url: '/Readings'
+    },
 ];
 
 const menuItemsGroup = [

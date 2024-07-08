@@ -71,7 +71,7 @@ const menuItems = [
     {
         name: 'Readings',
         icon: 'mdi-dns-outline',
-        url: '/Readings'
+        url: '/readings'
     },
 ];
 

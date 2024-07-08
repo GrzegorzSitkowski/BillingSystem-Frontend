@@ -26,8 +26,8 @@
             <template v-slot:item.action="{ item }">
                 <div class="text-no-wrap">
                     <VBtn icon="mdi-magnify-plus" title="Details" variant="flat" :to="`/readings/details/${item.id}`"></VBtn>
-                    <VBtn icon="mdi-pencil" title="Edit" variant="flat" :to="`/readings/edit/${item.id}`"></VBtn>
-                    <VBtn icon="mdi-delete" title="Delete" variant="flat" :loading="item.deleting" @click="deleteReading(item)"></VBtn>
+                    <VBtn icon="mdi-pencil" title="Edit" variant="flat" :to="`/readings/${item.id}`"></VBtn>
+                    <VBtn icon="mdi-delete" title="Delete" variant="flat" :loading="item.deleting" @click="deleteCustomer(item)"></VBtn>
                 </div>
             </template>
         </v-data-table>
@@ -73,7 +73,6 @@ const loadData = () => {
 onMounted(() => {
     loadData();
 });
-
 const deleteReading = (item) => {
     confirmDialog.value.show({
         title: 'Confirm delete',

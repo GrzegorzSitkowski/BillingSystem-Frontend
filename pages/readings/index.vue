@@ -3,7 +3,7 @@
         <v-toolbar color="transparent">
             <v-toolbar-title>
                 List of Readings
-            </v-toolbar-title>
+            </v-toolbar-title>           
 
             <template v-slot:append>
                 <div class="ml-2">

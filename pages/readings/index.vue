@@ -3,8 +3,8 @@
         <v-toolbar color="transparent">
             <v-toolbar-title>
                 List of Readings
-            </v-toolbar-title>           
-
+            </v-toolbar-title>
+        
             <template v-slot:append>
                 <div class="ml-2">
                     <v-btn color="primary" variant="flat" prepend-icon="mdi-plus" to="/readings/add">Add</v-btn>

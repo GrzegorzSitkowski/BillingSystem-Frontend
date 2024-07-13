@@ -73,6 +73,11 @@ const menuItems = [
         icon: 'mdi-dns-outline',
         url: '/readings'
     },
+    {
+        name: 'Record of invoices',
+        icon: 'mdi-file-document',
+        url: '/RecordOfInvoices'
+    },
 ];
 
 const menuItemsGroup = [

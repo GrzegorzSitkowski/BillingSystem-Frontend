@@ -78,6 +78,11 @@ const menuItems = [
         icon: 'mdi-file-document',
         url: '/RecordOfInvoices'
     },
+    {
+        name: 'Billing Dashboard',
+        icon: 'mdi-file-multiple',
+        url: '/billing'
+    },
 ];
 
 const menuItemsGroup = [

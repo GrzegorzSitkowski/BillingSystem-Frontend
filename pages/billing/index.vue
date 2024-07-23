@@ -22,7 +22,7 @@
                 <div class="text-no-wrap">
                     <input type="checkbox" id="checkbox" v-model="items" />
                     <label for="checkbox">{{ checked }}</label>
-                    <VBtn icon="mdi-svg" title="Invoice" variant="flat" :to="`/readings/details/${item.id}`"></VBtn>
+                    <VBtn icon="mdi-svg" title="Invoice" variant="flat" :to="`/billing/${item.id}`"></VBtn>
                     <!-- <VBtn icon="mdi-pencil" title="Edit" variant="flat" :to="`/readings/${item.id}`"></VBtn> -->
                     <!-- <VBtn icon="mdi-delete" title="Delete" variant="flat" :loading="item.deleting" @click="deleteReading(item)"></VBtn> -->
                 </div>

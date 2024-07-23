@@ -6,7 +6,7 @@
             </template>
 
             <v-toolbar-title>
-                {'Create new invoice'}
+                Create new invoice
             </v-toolbar-title>
         </v-toolbar>
 
@@ -43,6 +43,10 @@ const viewModel = ref({
     readingId: 0
 });
 
+const model = ref({
+    id: 0
+});
+
 const submit = async (ev) => {
     const {valid} = await ev;
     if(valid){
@@ -53,9 +57,9 @@ const submit = async (ev) => {
 const save = () => {
     saving.value = true;
 
-    useWebApiFetch(`/Invoices/CreateOrUpdate`, {
+    useWebApiFetch(`/Invoices/Create`, {
         method: 'POST',
-        body: { ...viewModel.value, id: isAdd.value ? undefined : route.params.id },
+        body: { ...viewModel.value},
         watch: false,
         onResponseError: ({ response }) => {
             let message = getErrorMessage(response, {});
@@ -78,11 +82,13 @@ const save = () => {
 const loadData = () => {
     loading.value = true;
 
-    useWebApiFetch('/Invoices/GetInvoice', {
+
+    useWebApiFetch('/Readings/GetReading', {
         query: {id: route.params.id },
     }).then(({ data, error}) => {
-        if(data.value){
-            viewModel.value = data.value;
+        if(data.value){     
+            model.value = data.value;    
+            viewModel.value.readingId = model.value.id;
         }else if(error.value){
             globalMessageStore.showErrorMessage("Error dowloading data")
         }

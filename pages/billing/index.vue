@@ -19,10 +19,9 @@
             </template>
 
             <template v-slot:item.action="{ item }">
-                <div class="text-no-wrap">
-                    <input type="checkbox" id="checkbox" v-model="items" />
-                    <label for="checkbox">{{ checked }}</label>
+                <div class="text-no-wrap">                  
                     <VBtn icon="mdi-svg" title="Invoice" variant="flat" :to="`/billing/${item.id}`"></VBtn>
+                    <VBtn icon="mdi-pencil" title="Invoice" variant="flat" @click="invoicing(item)"></VBtn>
                     <!-- <VBtn icon="mdi-pencil" title="Edit" variant="flat" :to="`/readings/${item.id}`"></VBtn> -->
                     <!-- <VBtn icon="mdi-delete" title="Delete" variant="flat" :loading="item.deleting" @click="deleteReading(item)"></VBtn> -->
                 </div>
@@ -34,15 +33,14 @@
     <v-toolbar>
         <template v-slot:append>
             <div class="ml-2">
-                <v-btn color="primary" variant="flat" prepend-icon="mdi-svg" to="/invoices/add">Invoice</v-btn>
+                <!-- <v-btn color="primary" variant="flat" prepend-icon="mdi-svg" :to="`/billing/${item.id}`">Invoice</v-btn> -->
             </div>
         </template>
     </v-toolbar>
 </template>
 
 <script setup>
-const globalMessageStore = useGlobalMessageStore();
-const { getErrorMessage } = useWebApiResponseParser();
+
 const dayjs = useDayjs();
 const loading = ref(false);
 const items = ref([]);
@@ -78,4 +76,24 @@ onMounted(() => {
     loadData();
 });
 
+const invoicing = (item) => {
+    confirmDialog.value.show({
+        title: 'Confirm invoicing',
+        text: 'Do you invoicing this reading?',
+        confirmBtnText: 'Yes',
+        confirmBtnColor: 'success'
+    }).then((confirm) => {
+        if(confirm){
+            useWebApiFetch(`/Invoices/Create`, {
+        method: 'POST',
+        body: { readingId: item.id},
+        watch: false,
+        onResponseError: ({ response }) => {
+            let message = getErrorMessage(response, {});
+            globalMessageStore.showErrorMessage(message);
+            }
+        })
+        }
+    })
+}
 </script>

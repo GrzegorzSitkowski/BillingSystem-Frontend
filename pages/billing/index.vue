@@ -96,7 +96,7 @@ const invoicing = (item) => {
             }
         }).then((response) => {
             if(response.data.value){
-                globalMessageStore.showSuccessMessage('Invoiced.')
+                globalMessageStore.showSuccessMessage('Invoiced')
             }
         })
         }

@@ -41,6 +41,8 @@
 
 <script setup>
 
+const globalMessageStore = useGlobalMessageStore();
+const { getErrorMessage } = useWebApiResponseParser();
 const dayjs = useDayjs();
 const loading = ref(false);
 const items = ref([]);
@@ -91,6 +93,10 @@ const invoicing = (item) => {
         onResponseError: ({ response }) => {
             let message = getErrorMessage(response, {});
             globalMessageStore.showErrorMessage(message);
+            }
+        }).then((response) => {
+            if(response.data.value){
+                globalMessageStore.showSuccessMessage('Invoiced.')
             }
         })
         }

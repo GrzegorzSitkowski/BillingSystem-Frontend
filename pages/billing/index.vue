@@ -20,8 +20,8 @@
 
             <template v-slot:item.action="{ item }">
                 <div class="text-no-wrap">                  
-                    <VBtn icon="mdi-svg" title="Invoice" variant="flat" :to="`/billing/${item.id}`"></VBtn>
-                    <VBtn icon="mdi-pencil" title="Invoice" variant="flat" @click="invoicing(item)"></VBtn>
+                    <!-- <VBtn icon="mdi-svg" title="Invoice" variant="flat" :to="`/billing/${item.id}`"></VBtn> -->
+                    <VBtn icon="mdi-svg" title="Invoice" variant="flat" @click="invoicing(item)"></VBtn>
                     <!-- <VBtn icon="mdi-pencil" title="Edit" variant="flat" :to="`/readings/${item.id}`"></VBtn> -->
                     <!-- <VBtn icon="mdi-delete" title="Delete" variant="flat" :loading="item.deleting" @click="deleteReading(item)"></VBtn> -->
                 </div>
@@ -81,7 +81,7 @@ onMounted(() => {
 const invoicing = (item) => {
     confirmDialog.value.show({
         title: 'Confirm invoicing',
-        text: 'Do you invoicing this reading?',
+        text: 'Do you invoice this reading?',
         confirmBtnText: 'Yes',
         confirmBtnColor: 'success'
     }).then((confirm) => {

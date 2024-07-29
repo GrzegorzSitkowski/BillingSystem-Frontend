@@ -46,8 +46,6 @@ const headers = ref([
     {title: 'CustomerId', value: 'customerId'},
     {title: 'Create Date', value: 'createDate'},
     {title: 'Due Date', value: 'dueDate'},
-    {title: 'Status Invoice', value: 'statusInvoice'},
-    {title: 'Status Payment', value: 'statusPayment'},
     {title: '', value: 'action', align: 'end'},
 ]);
 

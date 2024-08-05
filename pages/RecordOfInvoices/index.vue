@@ -6,20 +6,33 @@
             </v-toolbar-title>
         </v-toolbar>
 
-		<v-data-table :loading="loading" :items="items" :headers="headers" items-per-page-text="Rows"
-            :items-per-page-options="[10, 20, 50]" page-text="{0}-{1} of {2}" no-data-text="Not found any invoices." loading-text="Loading">
+        <SearchForm @search="handleSearch"/>
+
+        <!--<template v-slot:text>
+            <v-text-field 
+                 :filter="filter" v-model="search" label="Search" prepend-inner-icon="mdi-magnify" variant="outlined" hide-details single-line
+            ></v-text-field>
+        </template> -->
+
+        <!-- <v-data-table
+            headers="headers" :items="desserts" :search="search"
+        ></v-data-table> -->
+
+		<v-data-table :loading="loading" :items="items" :headers="headers" :search="search" :filter="filter" items-per-page-text="Rows"
+            :items-per-page-options="[10, 20, 50]" page-text="{0}-{1} of {2}" no-data-text="Not found any invoices." loading-text="Loading"> 
+    
 
             <template v-slot:item.url="{ value }">
                 <a :href="value" target="_blank">{{ value }}</a>
-            </template>
+            </template>        
 
             <template v-slot:item.createDate="{ value }">
                 {{ dayjs(value).format('DD.MM.YYYY') }}
             </template><template v-slot:item.dueDate="{ value }">
                 {{ dayjs(value).format('DD.MM.YYYY') }}
             </template>
-
-            <template v-slot:item.action="{ item }">
+            
+            <template v-slot:item.action="{ item }">              
                 <div class="text-no-wrap">
                     <VBtn icon="mdi-magnify-plus" title="Details" variant="flat" :to="`/RecordOfInvoices/details/${item.id}`"></VBtn>
                     <!-- <VBtn icon="mdi-pencil" title="Edit" variant="flat" :to="`/invoices/${item.id}`"></VBtn> -->
@@ -32,6 +45,8 @@
 </template>
 
 <script setup>
+
+
 const globalMessageStore = useGlobalMessageStore();
 const { getErrorMessage } = useWebApiResponseParser();
 const dayjs = useDayjs();
@@ -101,6 +116,18 @@ const deleteInvoice = (item) => {
         }
     })
 }
+
+const searchFilter = ref('');
+
+const filteredItems = computed(() => {
+    if(searchFilter.value === ''){
+        return items.filter(item => item.amount.includes(searchFilter.value));
+    }
+});
+
+const handleSearch = (search) => {
+    searchFilter.value = search;
+};
 
 
 </script>

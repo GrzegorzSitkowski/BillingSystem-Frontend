@@ -35,6 +35,7 @@
     </VCard>
 </template>
 
+
 <script setup>
 const globalMessageStore = useGlobalMessageStore();
 const { getErrorMessage } = useWebApiResponseParser();

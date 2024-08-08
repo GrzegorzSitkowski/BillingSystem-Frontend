@@ -109,5 +109,4 @@ const deleteCustomer = (item) => {
     })
 }
 
-
 </script>

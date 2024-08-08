@@ -6,8 +6,6 @@
             </v-toolbar-title>
         </v-toolbar>
 
-        <SearchForm @search="handleSearch"/>
-
         <!--<template v-slot:text>
             <v-text-field 
                  :filter="filter" v-model="search" label="Search" prepend-inner-icon="mdi-magnify" variant="outlined" hide-details single-line
@@ -45,6 +43,7 @@
 </template>
 
 <script setup>
+
 
 
 const globalMessageStore = useGlobalMessageStore();
@@ -116,18 +115,4 @@ const deleteInvoice = (item) => {
         }
     })
 }
-
-const searchFilter = ref('');
-
-const filteredItems = computed(() => {
-    if(searchFilter.value === ''){
-        return items.filter(item => item.amount.includes(searchFilter.value));
-    }
-});
-
-const handleSearch = (search) => {
-    searchFilter.value = search;
-};
-
-
 </script>

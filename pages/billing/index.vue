@@ -61,7 +61,7 @@ const headers = ref([
 const loadData = () => {
     loading.value = true;
 
-    useWebApiFetch('/Readings/List')
+    useWebApiFetch('/Billing/List')
         .then(({ data, error }) => {
             if (data.value) {
                 items.value = data.value.readings;

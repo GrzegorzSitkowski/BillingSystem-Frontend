@@ -5,6 +5,9 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import colors from 'vuetify/util/colors'
 
+import 'bootstrap/dist/css/bootstrap.css'
+import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.js'
+
 export default defineNuxtPlugin((app) => {
   const vuetify = createVuetify({
     defaults: {
@@ -30,4 +33,5 @@ export default defineNuxtPlugin((app) => {
     }
   })
   app.vueApp.use(vuetify)
+  app.vueApp.use(bootstrap).mount('#app')
 })

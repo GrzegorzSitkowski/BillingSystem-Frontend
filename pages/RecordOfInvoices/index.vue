@@ -33,7 +33,7 @@
             <template v-slot:item.action="{ item }">              
                 <div class="text-no-wrap">
                     <VBtn icon="mdi-magnify-plus" title="Details" variant="flat" :to="`/RecordOfInvoices/details/${item.id}`"></VBtn>
-                    <!-- <VBtn icon="mdi-pencil" title="Edit" variant="flat" :to="`/invoices/${item.id}`"></VBtn> -->
+                    <VBtn icon="mdi-marker-cancel" title="Correction" variant="flat" :to="`/RecordOfInvoices/correction/${item.id}`"></VBtn>
                     <VBtn icon="mdi-delete" title="Delete" variant="flat" :loading="item.deleting" @click="deleteInvoice(item)"></VBtn>
                 </div>
             </template>
@@ -82,6 +82,8 @@ const loadData = () => {
 onMounted(() => {
     loadData();
 });
+
+
 const deleteInvoice = (item) => {
     confirmDialog.value.show({
         title: 'Confirm delete',

@@ -16,7 +16,7 @@
                 <VTextField v-model="viewModel.amount" variant="outlined" label="Amount"></VTextField>
                 <VTextField v-model="viewModel.reason" variant="outlined" label="Reason"></VTextField>
                 <VTextField v-model="viewModel.describe" variant="outlined" label="Describe"></VTextField>
-                <VTextField v-model="viewModel.invoiceId" variant="outlined" label="Invoice ID"></VTextField>
+                <VTextField v-model="viewModel.invoiceId" variant="outlined" label="InvoiceId"></VTextField>
                 <VTextField v-model="viewModel.customerId" variant="outlined" label="Customer ID"></VTextField>
             </VCardText>
 
@@ -68,7 +68,7 @@ const save = () => {
 
     useWebApiFetch(`/Corrections/Create`, {
         method: 'POST',
-        body: { ...viewModel.value, id: isAdd.value},
+        body: { ...viewModel.value},
         watch: false,
         onResponseError: ({ response }) => {
             let message = getErrorMessage(response, {});
@@ -90,13 +90,18 @@ const save = () => {
 
 const loadData = () => {
     loading.value = true;
+    console.log(viewModel.value.id)
 
     useWebApiFetch('/Invoices/GetInvoice', {
         query: {id: route.params.id },
     }).then(({ data, error}) => {
         if(data.value){
-            model.value = data.value;    
-            viewModel.value.invoiceId = model.value.id;
+            //viewModel.value = data.value
+            
+            model.value = data.value;         
+            viewModel.value = model.value;
+            viewModel.value.invoiceId = model.value.id
+
         }else if(error.value){
             globalMessageStore.showErrorMessage("Error dowloading data")
         }
@@ -105,13 +110,11 @@ const loadData = () => {
     });
 };
 
-console.log(model.value.id)
-console.log(viewModel.value.id)
-
 onMounted(() => {
     if(!isAdd.value){
         loadData();
     }
 });
+
 
 </script>

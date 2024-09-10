@@ -76,7 +76,12 @@ const menuItems = [
     {
         name: 'Record of invoices',
         icon: 'mdi-file-document',
-        url: '/RecordOfInvoices'
+        url: '/RecordOfInvoices',
+    },
+    {
+        name: 'Record of corrections',
+        icon: 'mdi-marker-cancel',
+        url: '/RecordOfInvoices/Correction',
     },
     {
         name: 'Billing Dashboard',

@@ -5,9 +5,11 @@
                 Billing Dashboard
             </v-toolbar-title>        
         
-        </v-toolbar>    
+        </v-toolbar>
 
-		<v-data-table :loading="loading" :items="items" :headers="headers" items-per-page-text="Rows"
+        <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details></v-text-field>
+
+		<v-data-table :loading="loading" :items="items" :headers="headers" :search="search" items-per-page-text="Rows"
             :items-per-page-options="[10, 20, 50]" page-text="{0}-{1} of {2}" no-data-text="Not added any readings" loading-text="Loading">
 
             <template v-slot:item.url="{ value }">
@@ -48,6 +50,8 @@ const loading = ref(false);
 const items = ref([]);
 
 const confirmDialog = ref(null);
+
+const search=ref('');
 
 const headers = ref([
     {title: 'Id', value: 'id'},

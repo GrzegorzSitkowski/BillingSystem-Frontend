@@ -16,6 +16,11 @@ export default defineNuxtPlugin((app) => {
       VList: {
       },
     },
+    data(){
+      return {
+        search: ''
+      }
+    },
     theme: {
       defaultTheme: 'light',
       themes: {

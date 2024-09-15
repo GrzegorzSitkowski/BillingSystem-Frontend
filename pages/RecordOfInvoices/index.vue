@@ -6,17 +6,9 @@
             </v-toolbar-title>
         </v-toolbar>
 
-        <!--<template v-slot:text>
-            <v-text-field 
-                 :filter="filter" v-model="search" label="Search" prepend-inner-icon="mdi-magnify" variant="outlined" hide-details single-line
-            ></v-text-field>
-        </template> -->
+        <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details></v-text-field>
 
-        <!-- <v-data-table
-            headers="headers" :items="desserts" :search="search"
-        ></v-data-table> -->
-
-		<v-data-table :loading="loading" :items="items" :headers="headers" :search="search" :filter="filter" items-per-page-text="Rows"
+		<v-data-table :loading="loading" :items="items" :headers="headers" :search="search" items-per-page-text="Rows"
             :items-per-page-options="[10, 20, 50]" page-text="{0}-{1} of {2}" no-data-text="Not found any invoices." loading-text="Loading"> 
     
 
@@ -53,6 +45,8 @@ const loading = ref(false);
 const items = ref([]);
 
 const confirmDialog = ref(null);
+
+const search = ref('');
 
 const headers = ref([
     {title: 'Id', value: 'id'},

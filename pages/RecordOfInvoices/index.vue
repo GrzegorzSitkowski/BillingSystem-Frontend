@@ -25,6 +25,7 @@
             <template v-slot:item.action="{ item }">              
                 <div class="text-no-wrap">
                     <VBtn icon="mdi-magnify-plus" title="Details" variant="flat" :to="`/RecordOfInvoices/details/${item.id}`"></VBtn>
+                    <VBtn icon="mdi-printer" title="Print" variant="flat" @click="print(item)"></VBtn>
                     <VBtn icon="mdi-marker-cancel" title="Correction" variant="flat" :to="`/RecordOfInvoices/Correction/${item.id}`"></VBtn>
                     <VBtn icon="mdi-delete" title="Delete" variant="flat" :loading="item.deleting" @click="deleteInvoice(item)"></VBtn>
                 </div>
@@ -108,6 +109,31 @@ const deleteInvoice = (item) => {
             .finally(() => {
                 item.deleting = false;
             });
+        }
+    })
+}
+
+const print = (item) => {
+    confirmDialog.value.show({
+        title: 'Confirm print',
+        text: 'Do you print this invoice?',
+        confirmBtnText: 'Yes',
+        confirmBtnColor: 'success'
+    }).then((confirm) => {
+        if(confirm){
+            useWebApiFetch(`/Invoices/PrintInvoice`, {
+        method: 'GET',
+        query: { id: item.id},
+        watch: false,
+        onResponseError: ({ response }) => {
+            let message = getErrorMessage(response, {});
+            globalMessageStore.showErrorMessage(message);
+            }
+        }).then((response) => {
+            if(response.data.value){
+                globalMessageStore.showSuccessMessage('Print is done.')
+            }
+        })
         }
     })
 }

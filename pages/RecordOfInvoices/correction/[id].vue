@@ -78,7 +78,7 @@ const save = () => {
         .then((response) => {
             if (response.data.value) {
                 globalMessageStore.showSuccessMessage('Saved changes.');
-                router.push({ path: '/correction' });
+                router.push({ path: 'RecordOfInvoices/Correction' });
             }
         })
         .finally(() => {

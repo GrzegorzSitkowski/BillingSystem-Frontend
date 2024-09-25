@@ -52,6 +52,7 @@ const search = ref('');
 const headers = ref([
     {title: 'Id', value: 'id'},
     {title: 'Amount', value: 'amount'},
+    {title: 'Document Number', value: 'documentNumber'},
     {title: 'CustomerId', value: 'customerId'},
     {title: 'Create Date', value: 'createDate'},
     {title: 'Due Date', value: 'dueDate'},

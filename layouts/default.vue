@@ -88,6 +88,11 @@ const menuItems = [
         icon: 'mdi-file-multiple',
         url: '/billing/readings'
     },
+    {
+        name: 'Customers with interest',
+        icon: 'mdi-file-multiple',
+        url: '/billing/interest'
+    },
 ];
 
 const menuItemsGroup = [

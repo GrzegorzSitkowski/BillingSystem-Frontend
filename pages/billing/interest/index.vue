@@ -2,7 +2,7 @@
     <VCard>
         <v-toolbar color="transparent">
             <v-toolbar-title>
-                Customers with interests
+                Customers with interest
             </v-toolbar-title>        
         
         </v-toolbar>
@@ -16,8 +16,8 @@
                 <a :href="value" target="_blank">{{ value }}</a>
             </template>
 
-            <template v-slot:item.createDate="{ value }">
-                {{ dayjs(value).format('DD.MM.YYYY HH:mm') }}
+            <template v-slot:item.dueDate="{ value }">
+                {{ dayjs(value).format('DD.MM.YYYY') }}
             </template>
 
             <template v-slot:item.action="{ item }">

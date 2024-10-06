@@ -86,7 +86,7 @@ const menuItems = [
     {
         name: 'Billing Dashboard',
         icon: 'mdi-file-multiple',
-        url: '/billing'
+        url: '/billing/readings'
     },
 ];
 

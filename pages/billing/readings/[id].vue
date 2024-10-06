@@ -2,7 +2,7 @@
     <VCard>
         <v-toolbar color="transparent">
             <template v-slot:prepend>
-                <v-btn icon="mdi-chevron-left" to="/billing"></v-btn>
+                <v-btn icon="mdi-chevron-left" to="/billing/readings"></v-btn>
             </template>
 
             <v-toolbar-title>
@@ -69,7 +69,7 @@ const save = () => {
         .then((response) => {
             if (response.data.value) {
                 globalMessageStore.showSuccessMessage('Saved changes.');
-                router.push({ path: '/billing' });
+                router.push({ path: '/billing/readings' });
             }
         })
         .finally(() => {

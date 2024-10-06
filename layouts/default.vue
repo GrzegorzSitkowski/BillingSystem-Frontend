@@ -93,6 +93,11 @@ const menuItems = [
         icon: 'mdi-file-multiple',
         url: '/billing/interest'
     },
+    {
+        name: 'Record of Interest Note',
+        icon: 'mdi-file-document',
+        url: '/RecordOfInterest',
+    },
 ];
 
 const menuItemsGroup = [

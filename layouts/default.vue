@@ -74,6 +74,14 @@ const menuItems = [
         url: '/readings'
     },
     {
+        name: 'Billing Dashboard',
+        icon: 'mdi-file-multiple',
+        url: '/billing/readings'
+    },
+    {
+        name: 'Documents'
+    },
+    {
         name: 'Record of invoices',
         icon: 'mdi-file-document',
         url: '/RecordOfInvoices',
@@ -84,28 +92,18 @@ const menuItems = [
         url: '/RecordOfInvoices/Correction',
     },
     {
-        name: 'Billing Dashboard',
-        icon: 'mdi-file-multiple',
-        url: '/billing/readings'
+        name: 'Interest Notes',
     },
     {
-        name: 'Customers with interest',
+        name: 'Interest to bill',
         icon: 'mdi-file-multiple',
         url: '/billing/interest'
     },
     {
-        name: 'Record of Interest Note',
+        name: 'Interest Notes',
         icon: 'mdi-file-document',
         url: '/RecordOfInterest',
     },
-];
-
-const menuItemsGroup = [
-    {
-        name: 'Search',
-        icon: 'mdi-account-search',
-        url: '/customers/search',   
-    }
 ];
 
 function toggleTheme () {

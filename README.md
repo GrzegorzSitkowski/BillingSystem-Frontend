@@ -32,8 +32,7 @@ Application to invoice customers.
 ![Invoice](screenshots/Invoice.png)
 
 ## Status
-WORK IN PROGRESS
-I work for options to insert payments of customers and load data from file. 
+WORK IN PROGRESS. I work for options to insert payments of customers and load data from file. 
 
 More details:
 https://github.com/GrzegorzSitkowski/BillingSystem-Backend

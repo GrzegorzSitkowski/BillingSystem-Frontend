@@ -1,3 +1,3 @@
 <template>
-    <div>Hello world!</div>
+    <div>Billing system to invoice customers in your language school.</div>
 </template>

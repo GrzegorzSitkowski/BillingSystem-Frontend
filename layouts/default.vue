@@ -79,6 +79,11 @@ const menuItems = [
         url: '/billing/readings'
     },
     {
+        name: 'Payments',
+        icon: 'mdi-cash-multiple',
+        url: '/payments'
+    },
+    {
         name: 'Documents'
     },
     {

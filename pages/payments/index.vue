@@ -28,7 +28,6 @@
             <template v-slot:item.action="{ item }">
                 <div class="text-no-wrap">
                     <VBtn icon="mdi-magnify-plus" title="Details" variant="flat" :to="`/payments/details/${item.id}`"></VBtn>
-                    <VBtn icon="mdi-pencil" title="Edit" variant="flat" :to="`/payments/${item.id}`"></VBtn>
                     <VBtn icon="mdi-delete" title="Delete" variant="flat" :loading="item.deleting" @click="deletePayment(item)"></VBtn>
                 </div>
             </template>

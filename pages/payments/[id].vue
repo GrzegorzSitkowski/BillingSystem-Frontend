@@ -6,7 +6,7 @@
             </template>
 
             <v-toolbar-title>
-                {{ isAdd ? 'Add new payment' : 'Edit payment' }}
+                Create new payment
             </v-toolbar-title>
         </v-toolbar>
 
@@ -57,9 +57,9 @@ const submit = async (ev) => {
 const save = () => {
     saving.value = true;
 
-    useWebApiFetch(`/Payments/CreateOrUpdate`, {
+    useWebApiFetch(`/Payments/Create`, {
         method: 'POST',
-        body: { ...viewModel.value, id: isAdd.value ? undefined : route.params.id },
+        body: { ...viewModel.value },
         watch: false,
         onResponseError: ({ response }) => {
             let message = getErrorMessage(response, {});

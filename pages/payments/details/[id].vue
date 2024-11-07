@@ -2,7 +2,7 @@
     <VCard>
         <v-toolbar color="transparent">
             <template v-slot:prepend>
-                <v-btn icon="mdi-chevron-left" to="/customers"></v-btn>
+                <v-btn icon="mdi-chevron-left" to="/payments"></v-btn>
             </template>
 
             <v-toolbar-title>

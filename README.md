@@ -1,75 +1,39 @@
-# Nuxt 3 Minimal Starter
+# Billing system - frontend
+> Web application to billing customers in you language school. 
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Status](#status)
+* [Sreenshots](#screenshots)
 
-## Setup
+## General info
+Application to invoice customers.
 
-Make sure to install the dependencies:
+## Technologies
+* Vue.js
+* Vuetify.js
 
-```bash
-# npm
-npm install
 
-# pnpm
-pnpm install
+## Screenshots
+### Main page
+![MainPage](screenshots/main.png)
 
-# yarn
-yarn install
+### Example list of records
+![List](screenshots/List.png)
 
-# bun
-bun install
-```
+### Example page of details
+![Deails](screenshots/Details.png)
 
-## Development Server
+### Example edit of record
+![Edit](screenshots/Edit.png)
 
-Start the development server on `http://localhost:3000`:
+### Invoicing
+![Invoice](screenshots/Invoice.png)
 
-```bash
-# npm
-npm run dev
+## Status
+WORK IN PROGRESS. I work for options to insert payments of customers and load data from file. 
 
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+More details:
+https://github.com/GrzegorzSitkowski/BillingSystem-Backend
+https://github.com/GrzegorzSitkowski/BillingSystem-Database

@@ -12,15 +12,18 @@
   "dependencies": {
     "@mdi/font": "^7.4.47",
     "@pinia/nuxt": "^0.5.1",
+    "@primevue/themes": "^4.2.2",
     "bootstrap": "^5.3.3",
     "nuxt": "^3.11.2",
     "pinia": "^2.1.7",
+    "primevue": "^4.2.2",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
     "vue-search-input": "^1.1.16",
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
+    "@primevue/nuxt-module": "^4.2.2",
     "@vueuse/core": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0",
     "dayjs-nuxt": "^2.1.9",

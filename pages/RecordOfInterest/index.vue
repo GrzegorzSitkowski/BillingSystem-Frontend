@@ -6,7 +6,7 @@
             </v-toolbar-title>
         </v-toolbar>
 
-        <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details></v-text-field>
+        <v-text-field v-model="search" style="margin: 10px;" append-icon="mdi-magnify" label="Search" single-line hide-details></v-text-field>
 
 		<v-data-table :loading="loading" :items="items" :headers="headers" :search="search" items-per-page-text="Rows"
             :items-per-page-options="[10, 20, 50]" page-text="{0}-{1} of {2}" no-data-text="Not found any interest notes." loading-text="Loading"> 
